@@ -11,8 +11,11 @@ import XCTest
 
 class JenkinsTestTests: XCTestCase {
     
+    var vc = ViewController()
     override func setUp() {
         super.setUp()
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        vc = storyboard.instantiateInitialViewController() as! ViewController
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -22,6 +25,8 @@ class JenkinsTestTests: XCTestCase {
     }
     
     func testExample() {
+        let number = vc.calculatorTest()
+        XCTAssert(number == 50)
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
